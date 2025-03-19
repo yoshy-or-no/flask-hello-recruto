@@ -1,0 +1,19 @@
+digraph {
+	rankdir=TB size=10
+	Start [label="Начало" fillcolor=lightgreen shape=ellipse style=filled]
+	DataCollection [label="Сбор данных вручную
+(Excel, ERP, отчеты)" shape=box]
+	Processing [label="Обработка данных вручную
+(аналитики сводят данные, расчеты)" shape=box]
+	Reporting [label="Формирование отчетов вручную
+(Excel, BI-системы)" shape=box]
+	Decision [label="Принятие решений
+(руководство анализирует отчеты)" shape=diamond]
+	End [label="Конец" fillcolor=lightcoral shape=ellipse style=filled]
+	Start -> DataCollection
+	DataCollection -> Processing
+	Processing -> Reporting
+	Reporting -> Decision
+	Decision -> End [label="Принято"]
+	Decision -> Processing [label="Требуется уточнение"]
+}

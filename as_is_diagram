@@ -1,0 +1,19 @@
+digraph {
+	rankdir=TB size=10
+	Start [label="Начало" fillcolor=lightgreen shape=ellipse style=filled]
+	DataEntry [label="Ручной ввод данных в таблицы" shape=box]
+	Schedule [label="Формирование графика аттестаций" shape=box]
+	Notify [label="Уведомление сотрудников вручную" shape=box]
+	Testing [label="Прохождение аттестации" shape=box]
+	Report [label="Ручное формирование отчетов" shape=box]
+	Decision [label="Руководство принимает решение" shape=diamond]
+	End [label="Конец" fillcolor=lightcoral shape=ellipse style=filled]
+	Start -> DataEntry
+	DataEntry -> Schedule
+	Schedule -> Notify
+	Notify -> Testing
+	Testing -> Report
+	Report -> Decision
+	Decision -> End [label="Принято"]
+	Decision -> Schedule [label="Пересдача"]
+}
